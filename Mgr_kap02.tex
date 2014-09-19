@@ -1,0 +1,85 @@
+%%%
+%%%  VZOR PRO VYTVOŘENÍ DIPLOMOVÉ PRÁCE 
+%%%  
+%%%  * soubor obsahující fiktivní třetí kapitolu
+%%%
+%%%  AUTOŘI:  Arnošt Komárek (komarek@karlin.mff.cuni.cz), 2011
+%%%           Michal Kulich (kulich@karlin.mff.cuni.cz), 2013
+%%%
+%%%  POSLEDNÍ ÚPRAVA: 20130315
+%%%  
+%%%  ===========================================================================
+
+\chapter{Stochastické optimální řízení}
+
+
+\section{Lineární kvadratické řízení (LQC)}
+    \cite{duncan2012linear}
+    Nechť $U,V$ a $\mathscr{H}$ jsou reálné Hilbertovy prostory a uvažujme
+    stavovou rovnici
+    \begin{align}
+        \dd X(t) &= \left( A X(t) + B u(t) \right)\!\dd t + C \dd B^H(t)
+        \label{eq:stateeq}\\
+        X_0 &= x,
+    \end{align}
+    v prostoru $\mathscr{H}$, kde $t\geq0$, $x\in\mathscr{H}$, $A : D_A \subset
+    \mathscr{H}\rightarrow\mathscr{H}$ je lineární, (obecně) neomezený
+    operátor, jenž je infinitesimální generátor silně spojité semigrupy
+    $\left(S(t),t\geq0\right)$, a dále $\left(B^H(t),t\geq0\right)$ je
+    cylindrický frakcionální Brownův pohyb s Hurstovým parametrem 
+    $H\in\left({\frac{1}{2},1}\right)$ na prostoru $V$, definovaný na
+    filtrovaném pravděpodobnostním prostoru $\left( \Omega, \mathscr{F}, \left(
+    \mathscr{F}(t),t\geq0\right),\mathbb{P} \right).$
+    
+    Můžeme předpokládat, že filtrace $\left( \mathscr{F}(t),
+    t\geq0 \right)$ splňuje tzv. obvyklé podmínky. V případě zde uvažovaného
+    problému optimálního řízení je přirozené předpokládat, že $\left( \mathscr{F}(t),
+    t\geq0 \right)$ je $\mathbb{P}$-zúplněním $\left( \sigma \left( B(s), s\leq
+    t \right),t\geq0 \right)$.
+\\
+
+    Nyní uveďme některé předpoklady:
+    \begin{enumerate}[({A}1)]
+        \item Nechť je jedna z následujících dvou podmínek splněna pro $B$ a $C$ v
+            \eqref{eq:stateeq}:
+            \begin{enumerate}[(a)]
+                \item $B\in\mathscr{L}\left( U,\mathscr{H} \right)$,
+                    $C\in\mathscr{L}\left( V,\mathscr{H} \right)$, kde
+                    $U = \left( U,\langle \cdot,\cdot \rangle_U,|\cdot|_U
+                    \right)$ je Hilbertův prostor (stavový prostor of
+                    controls).
+                \item $\left(S(t),t\geq0\right)$ je analytickou semigrupou a
+                    existují konstanty $\alpha\in\left( 0,1 \right)$ a
+                $\beta\in\left( 0,1 \right]$ takové, že
+                $B\in\mathscr{L}\left(U, D_A^{\alpha-1} \right)$ a
+                $C\in\mathscr{L}\left(U, D_A^{\beta-1} \right)$.
+            \end{enumerate}
+        \item Nechť $\mathscr{U}$ je rodina admissible controls, pak pro
+            $u\in\mathscr{U} := L_\mathscr{F}^p=L_\mathscr{F}^p\left( \left(
+            0,T \right)\times \Omega;U \right)$, kde $p > \frac{1}{a}$,
+            $p\geq2$ je pevné a $L_\mathscr{F}^p$ označuje uzavřený lineární
+            podprostor všech $\mathscr{F}(t)$-progresivně měřitelných procesů v
+            $L^p \left( \left( 0,T \right)\times \Omega;U \right)$. Pokud
+            $B\in\mathscr{L}\left( U,\mathscr{H} \right)$, potom stačí, aby
+            $p\geq2$.
+        \item Předpokládejme, že existuje $T_0>0$ a $\eta>0$ takové, že
+            $$ \int_0^T \int_0^T r^{-\eta}s^{-\eta}
+            |S(r)C\tilde{Q}^{\frac{1}{2}}|_{\mathscr{L}_2\left(
+            V,\mathscr{H} \right)}|S(s)C\tilde{Q}^{\frac{1}{2}}|_{\mathscr{L}_2\left(
+            V,\mathscr{H} \right)} \phi_H(r-s)\dd r\!\dd s$$
+            je konečný a kde $\phi_H(r):=H\left( 2H-1 \right)|r|^{2H-2}$.
+        \item $Q,G\in\mathscr{L}(\mathscr{H})$, $Q\geq0$, $G\geq0$,
+            $R\in\mathscr{L}(U)$, $R\geq0$, $Q$, $G$ a $R$ jsou
+            samoadjungované.
+        \item 
+            \begin{enumerate}[(a)]
+                \item $\Tr\tilde{Q}<\infty$.
+                \item $\beta\geq\alpha>1-H$.
+                \item Inverzní operátor k $R$ je omezený, tedy
+                    $R^{-1}\in\mathscr{L}(U)$, a
+                    $G\in\mathscr{L}(\mathscr{H},D_{A^*}^{\alpha-1})$.
+            \end{enumerate}
+    \end{enumerate}
+    
+
+\section{Stochastický princip maxima}

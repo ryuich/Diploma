@@ -1,0 +1,149 @@
+%%%
+%%%  VZOR PRO VYTVOŘENÍ DIPLOMOVÉ PRÁCE 
+%%%  
+%%%  * soubor obsahující fiktivní první kapitolu
+%%%
+%%%  AUTOŘI:  Arnošt Komárek (komarek@karlin.mff.cuni.cz), 2011
+%%%           Michal Kulich (kulich@karlin.mff.cuni.cz), 2013
+%%%
+%%%  POSLEDNÍ ÚPRAVA: 20130315
+%%%  
+%%%  ===========================================================================
+
+\chapter{Základní pojmy}
+
+Nechť $\left( \Omega, \mathcal{F}, \mathbb{P} \right)$ je úplný
+pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu např.
+\cite{nourdin2013selected}.
+
+
+\begin{definice}\label{def:fbm}
+    Standardním frakcionálním Brownovým pohybem (\vspace{2pt}fBm) indexovaný
+    Hurstovým parametrem $H\in\left(0,1\right)$ nazveme spojitý centrovaný
+    gaussovský proces $\left( B^H (t),t\geq 0\right)$ s kovarianční funkcí
+    \begin{align*}
+      \mathbb{E}& \left[ B^H (s) \, B^H (t) \right] =
+      \frac{1}{2}\left( t^{2H}+s^{2H}-|t-s|^{2H} \right).
+    \end{align*}
+\end{definice}
+
+
+\begin{definice}
+    Náhodný proces $\left(B^H(t),t\geq0\right)$ nazveme cylindrickým frakcionálním Brownovým
+    pohybem s Hurstovým parametrem $H\in\left(1/2,1\right)$ na prostoru $V$, definovaný na
+    filtrovaném pravděpodobnostním prostoru $\left( \Omega, \mathscr{F}, \left(
+    \mathscr{F}_t\right)_{t\geq0},\mathbb{P} \right)$, pokud
+    
+    $$ B^H(t) = \sum_{i=1}^\infty e_i \sqrt{\lambda_i}\, \beta_i (t), \qquad
+    t>0,$$
+    kde $\left\{ e_i, i\in\mathbb{N} \right\}$ je úplná ortonormální báze
+    prostoru $V$, $\left( \beta_i(t),i\in\mathbb{N},t\geq0 \right)$ je rodina
+    (stochasticky) nezávislých, reálných standardních frakcionálních
+    Brownových pohybů s pevně zvoleným Hurstovým parametrem $H\in\left(
+    {\frac{1}{2},1}\right)$ a $\lambda\geq0$, $\left(
+    \lambda_i,i\in\mathbb{N} \right)$ je omezená poslopnoust v
+    $\mathbb{R}_+$.
+\end{definice}
+
+
+\begin{definice}
+    Řekneme, že filtrace $\left( \mathscr{F}_t,t\geq0 \right)$ splňuje obvyklé podmínky, pokud
+    \begin{enumerate}[(i)]
+        \item $\mathscr{F}_t$ je $\mathbb{P}$-úplná,
+        \item $\mathscr{F}_t = \bigcap_{s>t} \mathscr{F}_s$  (zprava spojitá).
+    \end{enumerate}
+\end{definice}
+
+
+\begin{definice}
+    Inkrementální kovariance $\tilde{Q}$ cylindrického fBm $\left(B^H(t),t\geq0\right)$
+    je definovaná vztahem
+    $$ \tilde{Q}e_n = \lambda_n e_n, \qquad n\in\mathbb{N}. $$ 
+\end{definice}
+
+
+\begin{definice}[\cite{duncan2013linear}]\label{def:fracint}
+    Nechť $\alpha\in \left( 0,1 \right)$ je pevné. Potom levostranný, popř.
+    pravostranný frakcionální (Riemann--Liouvilleův) integrál pro
+    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$ definovaný pro skoro
+    všechna $t\in\left[ 0,T \right]$ je dán předpisem
+        
+        $$\left( I_{0_+}^\alpha \varphi \right) \left( t \right) \eqdef
+        \frac{1}{\Gamma(\alpha)}\int_{0}^{t} \left(t-s\right)^{\alpha-1} \varphi(s)
+        \dd s,$$
+    popř.
+        $$\left( I_{T_-}^\alpha \varphi \right) \left( t \right) \eqdef
+        \frac{1}{\Gamma(\alpha)}\int_{t}^{T} \left(s-t\right)^{\alpha-1} \varphi(s)
+        \dd s,$$
+        kde $\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}\dd x$ je gama funkce.
+\end{definice}
+
+
+\begin{definice}[\cite{duncan2013linear}]\label{def:fracder}
+    Nechť $\alpha\in \left( 0,1 \right)$ je pevné. Potom levostranná, popř.
+    pravostranná frakcionální (Riemann--Liouvilleva) derivace pro
+    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$ definovaná pro skoro
+    všechna $t\in\left[ 0,T \right]$ je dána předpisem
+        
+        $$\left( D_{0_+}^\alpha \varphi \right) \left( t \right) \eqdef
+        \frac{\mathrm{d}}{\mathrm{d}t}\left( I_{0_+}^{1-\alpha} \varphi \right) \left( t \right) ,$$
+    popř.
+        $$\left( D_{T_-}^\alpha \varphi \right) \left( t \right) \eqdef
+        \frac{\mathrm{d}}{\mathrm{d}t}\left( I_{T_-}^{1-\alpha} \varphi \right) \left( t \right) ,$$
+    což ve Weylově reprezentaci dostáváme
+        %$$\left( D_{0_+}^\alpha \varphi \right) \left( t \right) =
+        %\frac{1}{\Gamma(1-\alpha)}\left[ \frac{\varphi(t)}{t^\alpha} + \alpha
+            %\int_{0}^{t} \frac{\varphi(t)-\varphi(s)}{\left(t-s\right)^{\alpha+1}} 
+        %\dd s, \right],$$
+    %popř.
+        %$$\left( D_{T_-}^\alpha \varphi \right) \left( t \right) =
+        %\frac{1}{\Gamma(1-\alpha)}\left[ \frac{\varphi(t)}{\left( T-t
+        %\right)^\alpha} + \alpha \int_{t}^{T} \frac{\varphi(s)-\varphi(t)}{\left(s-t\right)^{\alpha+1}} 
+        %\dd s \right].$$
+\begin{align*}
+    \left( D_{0_+}^\alpha \varphi \right) \left( t \right) &=
+        \frac{1}{\Gamma(1-\alpha)}\left[ \frac{\varphi(t)}{t^\alpha} + \alpha
+        \int_{0}^{t} \frac{\varphi(t)-\varphi(s)}{\left(t-s\right)^{\alpha+1}} 
+        \dd s, \right],\\
+    \intertext{popř.}
+    \left( D_{T_-}^\alpha \varphi \right) \left( t \right) &=
+        \frac{1}{\Gamma(1-\alpha)}\left[ \frac{\varphi(t)}{\left( T-t
+        \right)^\alpha} + \alpha \int_{t}^{T} \frac{\varphi(s)-\varphi(t)}{\left(s-t\right)^{\alpha+1}} 
+        \dd s \right].
+\end{align*}
+\end{definice}
+
+
+%\begin{definice}
+    %Formální derivaci (\vspace{2pt}fBm) nazýváme frakcionálním gaussovským šumem (fGn).
+%\end{definice}
+
+
+\begin{definice}
+    Prostorem $L^2_H \left( \left[ 0,T \right] \right)$ nazveme hilbertův
+    prostor, kde $f,g\in L^2_H$, pokud $\langle f,f \rangle_H < \infty$ a
+    $\langle g,g \rangle_H < \infty$ a skalární součin je dán jako
+
+    $$ \langle f,g \rangle_H = \rho (H) \int_0^T u_{\frac{1}{2}-H}^2 (r)
+    \left(I_{T^-}^{\left(H-\frac{1}{2}\right)} u_{H-\frac{1}{2}}\; f \right) (r)
+    \left(I_{T^-}^{\left(H-\frac{1}{2}\right)} u_{H-\frac{1}{2}}\; g \right)
+    (r) \dd r, $$
+    kde 
+    $$ \rho (H) = \frac{2H \, \Gamma (H+\frac{1}{2}) \, \Gamma(\frac{3}{2}-H)}
+    {\Gamma (2-2H)}$$
+    a $u_a (s) = s^a$, $a>0$, $s>0$.
+
+\end{definice}
+
+
+\begin{tvrz}[\cite{duncan2006prediction}]
+    Nechť $f\in L^2_H \left( \left[ 0,T \right] \right)$. Potom
+        $$\mathbb{E}\left[\int_s^t f \dd B^H \;|\; B^H (r), r\in \left(s,t\right)\right]
+        = \int_0^s u_{\frac{1}{2}-H} \left(I_{s^-}^{-\left(H-\frac{1}{2}\right)} 
+        \left(I_{t^-}^{\left(H-\frac{1}{2}\right)} u_{H-\frac{1}{2}}\; f
+        \right) \right) \dd B^H, $$
+    kde $u_a (s) = s^a$, $a>0$, $s>0$.
+\end{tvrz}
+
+
+%%%  ===========================================================================
