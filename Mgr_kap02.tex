@@ -18,13 +18,13 @@
     Nechť $U,V$ a $\mathscr{H}$ jsou reálné Hilbertovy prostory a uvažujme
     stavovou rovnici
     \begin{align}
-        \dd X(t) &= \left( A X(t) + B u(t) \right)\!\dd t + C \dd B^H(t)
+        \dd X(t) &= \big( A X(t) + B u(t) \big)\!\dd t + C \dd B^H(t)
         \label{eq:stateeq}\\
         X_0 &= x,
     \end{align}
     v prostoru $\mathscr{H}$, kde $t\geq0$, $x\in\mathscr{H}$, $A : D_A \subset
     \mathscr{H}\rightarrow\mathscr{H}$ je lineární, (obecně) neomezený
-    operátor, jenž je infinitesimální generátor silně spojité semigrupy
+    operátor, jenž je infinitesimálním generátorem silně spojité semigrupy
     $\left(S(t),t\geq0\right)$, a dále $\left(B^H(t),t\geq0\right)$ je
     cylindrický frakcionální Brownův pohyb s Hurstovým parametrem 
     $H\in\left({\frac{1}{2},1}\right)$ na prostoru $V$, definovaný na
@@ -38,23 +38,23 @@
     t \right),t\geq0 \right)$.
 \\
 
-    Nyní uveďme některé předpoklady:
+    Nyní uveďme předpoklady:
     \begin{enumerate}[({A}1)]
-        \item Nechť je jedna z následujících dvou podmínek splněna pro $B$ a $C$ v
-            \eqref{eq:stateeq}:
+        \item Nechť je pro $B$ a $C$ z \eqref{eq:stateeq} splněna jedna z
+            následujících dvou podmínek:
             \begin{enumerate}[(a)]
                 \item $B\in\mathscr{L}\left( U,\mathscr{H} \right)$,
                     $C\in\mathscr{L}\left( V,\mathscr{H} \right)$, kde
                     $U = \left( U,\langle \cdot,\cdot \rangle_U,|\cdot|_U
-                    \right)$ je Hilbertův prostor (stavový prostor of
-                    controls).
+                    \right)$ je Hilbertův prostor (stavový prostor
+                    regulací).
                 \item $\left(S(t),t\geq0\right)$ je analytickou semigrupou a
                     existují konstanty $\alpha\in\left( 0,1 \right)$ a
                 $\beta\in\left( 0,1 \right]$ takové, že
                 $B\in\mathscr{L}\left(U, D_A^{\alpha-1} \right)$ a
                 $C\in\mathscr{L}\left(U, D_A^{\beta-1} \right)$.
             \end{enumerate}
-        \item Nechť $\mathscr{U}$ je rodina admissible controls, pak pro
+        \item Nechť $\mathscr{U}$ je rodina přípustných regulací, pak pro
             $u\in\mathscr{U} := L_\mathscr{F}^p=L_\mathscr{F}^p\left( \left(
             0,T \right)\times \Omega;U \right)$, kde $p > \frac{1}{a}$,
             $p\geq2$ je pevné a $L_\mathscr{F}^p$ označuje uzavřený lineární
@@ -81,5 +81,23 @@
             \end{enumerate}
     \end{enumerate}
     
+Hodnotový funkcionál je definovaný jako
+\begin{equation}
+    J (x,y) := \frac{1}{2}\mathbb{E}\int_0^T \big( \langle Q X_s,
+    X_s \rangle_\mathscr{H} + \langle R u_s, u_s\rangle_U \big) \dd s +
+    \frac{1}{2} \mathbb{E} \langle G X_T, X_T \rangle_\mathscr{H},
+    \label{def:costfunctional}
+\end{equation}
+pro $x\in\mathscr{H}$ a $u\in U$, kde $Q$, $R$ a $G$ jsou lineární
+operátory splňující podmínku (A4).
+
+Úlohou je minimalizovat hodnotový funkcionál $J(x,u)$, tedy
+\begin{equation}
+    \tilde{J}(x) := \inf_{u\in\mathscr{U}} J(x,u)
+    \label{def:costfunctionalinfimum}
+\end{equation}
+a (pro dané $x\in\mathscr{H}$) abychom nalezli optimální regulaci
+$\hat{u}\in\mathscr{U}$, která dosahuje infima v
+\eqref{def:costfunctionalinfimum}, tj. $J(\hat{x},u) = \tilde{J}(x)$.
 
 \section{Stochastický princip maxima}
