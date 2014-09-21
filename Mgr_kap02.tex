@@ -100,4 +100,33 @@ a (pro dané $x\in\mathscr{H}$) abychom nalezli optimální regulaci
 $\hat{u}\in\mathscr{U}$, která dosahuje infima v
 \eqref{def:costfunctionalinfimum}, tj. $J(\hat{x},u) = \tilde{J}(x)$.
 
+Formální Ricattiho rovnice je v tomto případě
+\begin{align}
+	\dot{V} &= A^*V + VA - VBR^{-1}B^{*}V + Q,\\
+	V(0) &= G,
+	\label{}
+\end{align}
+která nezahrnuje lineární operátor šumu $C$, takže v tomto případě lze uplatnit 
+dobře známý výsledek pro deterministický případ.
+
+Nechť $\Sigma^+ = \left\{ V\in\mathscr{L}(\mathscr{H}),V=V^*;V\geq0 \right\}$.
+
+\begin{veta}
+	Pokud jsou (A1), (A4) a (A5) splněny, potom pro libovolný operátor $V_0\in\Sigma^+\cap
+	\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha})$ existuje operátorová funkce 
+	$V\in C_s([0,T],\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha})\cap C_s([0,T],\Sigma^+)$
+	taková, že
+	\begin{equation}
+		V(t) = S^*(t) V_0 S(t) + \int_0^t S^*(t-s)\big(Q-\left( B^*V(s) \right)^* R^{-1}B^*V(s)
+		\big) S(t-s) \dd s
+		\label{}
+	\end{equation}
+	pro věechna $t\in[0,T]$ nebo (ekvivalentně)
+	\begin{equation}
+		\frac{\dd}{\dd t} \langle V(t)\,x,y\rangle_\mathscr{H} = 
+		\label{}
+	\end{equation}
+\end{veta}
+
+
 \section{Stochastický princip maxima}
