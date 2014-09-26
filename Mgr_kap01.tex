@@ -19,7 +19,7 @@ pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu nap
 
 \begin{definice}\label{def:fbm}
     Standardním frakcionálním Brownovým pohybem (\vspace{2pt}fBm) indexovaný
-    Hurstovým parametrem $H\in\left(0,1\right)$ nazveme spojitý centrovaný
+    Hurstovým parametrem $H\in\left(0,1\right)$ nazveme reálný spojitý centrovaný
     gaussovský proces $\left( B^H (t),t\geq 0\right)$ s kovarianční funkcí
     \begin{align*}
       \mathbb{E}& \left[ B^H (s) \, B^H (t) \right] =
@@ -30,7 +30,7 @@ pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu nap
 
 \begin{definice}
     Náhodný proces $\left(B^H(t),t\geq0\right)$ nazveme cylindrickým frakcionálním Brownovým
-    pohybem s Hurstovým parametrem $H\in\left(1/2,1\right)$ na prostoru $V$, definovaný na
+    pohybem s Hurstovým parametrem $H\in\left(\frac{1}{2},1\right)$ na prostoru $V$, definovaný na
     filtrovaném pravděpodobnostním prostoru $\left( \Omega, \mathscr{F}, \left(
     \mathscr{F}_t\right)_{t\geq0},\mathbb{P} \right)$, pokud
     
@@ -65,8 +65,8 @@ pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu nap
 \begin{definice}[\cite{duncan2013linear}]\label{def:fracint}
     Nechť $\alpha\in \left( 0,1 \right)$ je pevné. Potom levostranný, popř.
     pravostranný frakcionální (Riemann--Liouvilleův) integrál pro
-    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$ definovaný pro skoro
-    všechna $t\in\left[ 0,T \right]$ je dán předpisem
+    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$, definovaný pro skoro
+    všechna $t\in\left[ 0,T \right]$, je dán předpisem
         
         $$\left( I_{0_+}^\alpha \varphi \right) \left( t \right) \eqdef
         \frac{1}{\Gamma(\alpha)}\int_{0}^{t} \left(t-s\right)^{\alpha-1} \varphi(s)
@@ -82,8 +82,8 @@ pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu nap
 \begin{definice}[\cite{duncan2013linear}]\label{def:fracder}
     Nechť $\alpha\in \left( 0,1 \right)$ je pevné. Potom levostranná, popř.
     pravostranná frakcionální (Riemann--Liouvilleva) derivace pro
-    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$ definovaná pro skoro
-    všechna $t\in\left[ 0,T \right]$ je dána předpisem
+    $\varphi\in L^1 \left( \left[ 0,T \right] \right)$, definovaná pro skoro
+    všechna $t\in\left[ 0,T \right]$, je dána předpisem
         
         $$\left( D_{0_+}^\alpha \varphi \right) \left( t \right) \eqdef
         \frac{\mathrm{d}}{\mathrm{d}t}\left( I_{0_+}^{1-\alpha} \varphi \right) \left( t \right) ,$$
@@ -120,7 +120,7 @@ pravděpodobnostní prostor. Více na thema frakcionálního Brownova pohybu nap
 
 
 \begin{definice}
-    Prostorem $L^2_H \left( \left[ 0,T \right] \right)$ nazveme hilbertův
+    Prostorem $L^2_H \left( \left[ 0,T \right] \right)$ nazveme Hilbertův
     prostor, kde $f,g\in L^2_H$, pokud $\langle f,f \rangle_H < \infty$ a
     $\langle g,g \rangle_H < \infty$ a skalární součin je dán jako
 

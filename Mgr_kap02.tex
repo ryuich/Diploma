@@ -12,15 +12,17 @@
 
 \chapter{Stochastické optimální řízení}
 
+%\epigraph{\textit{``Il faut réfléchir avant d'agir."}}{--- \textup{Proverbe français}}
+
 
 \section{Lineární kvadratické řízení (LQC)}
     \cite{duncan2012linear}
     Nechť $U,V$ a $\mathscr{H}$ jsou reálné Hilbertovy prostory a uvažujme
     stavovou rovnici
     \begin{align}
-        \dd X(t) &= \big( A X(t) + B u(t) \big)\!\dd t + C \dd B^H(t)
+        \dd X(t) &= A X(t)\dd t + B u(t)\dd t + C \dd B^H(t)
         \label{eq:stateeq}\\
-        X_0 &= x,
+        X_0 &= x,\nonumber
     \end{align}
     v prostoru $\mathscr{H}$, kde $t\geq0$, $x\in\mathscr{H}$, $A : D_A \subset
     \mathscr{H}\rightarrow\mathscr{H}$ je lineární, (obecně) neomezený
@@ -55,8 +57,8 @@
                 $C\in\mathscr{L}\left(U, D_A^{\beta-1} \right)$.
             \end{enumerate}
         \item Nechť $\mathscr{U}$ je rodina přípustných regulací, pak pro
-            $u\in\mathscr{U} := L_\mathscr{F}^p=L_\mathscr{F}^p\left( \left(
-            0,T \right)\times \Omega;U \right)$, kde $p > \frac{1}{a}$,
+            $u\in\mathscr{U} \eqdef L_\mathscr{F}^p=L_\mathscr{F}^p( (
+            0,T )\times$\\$\Omega;U )$, kde $p > \frac{1}{a}$,
             $p\geq2$ je pevné a $L_\mathscr{F}^p$ označuje uzavřený lineární
             podprostor všech $\mathscr{F}(t)$-progresivně měřitelných procesů v
             $L^p \left( \left( 0,T \right)\times \Omega;U \right)$. Pokud
@@ -67,7 +69,7 @@
             |S(r)C\tilde{Q}^{\frac{1}{2}}|_{\mathscr{L}_2\left(
             V,\mathscr{H} \right)}|S(s)C\tilde{Q}^{\frac{1}{2}}|_{\mathscr{L}_2\left(
             V,\mathscr{H} \right)} \phi_H(r-s)\dd r\!\dd s$$
-            je konečný a kde $\phi_H(r):=H\left( 2H-1 \right)|r|^{2H-2}$.
+            je konečný a kde $\phi_H(r)\eqdef H\left( 2H-1 \right)|r|^{2H-2}$.
         \item $Q,G\in\mathscr{L}(\mathscr{H})$, $Q\geq0$, $G\geq0$,
             $R\in\mathscr{L}(U)$, $R\geq0$, $Q$, $G$ a $R$ jsou
             samoadjungované.
@@ -80,53 +82,147 @@
                     $G\in\mathscr{L}(\mathscr{H},D_{A^*}^{\alpha-1})$.
             \end{enumerate}
     \end{enumerate}
-    
+
+\begin{definice}
 Hodnotový funkcionál je definovaný jako
 \begin{equation}
-    J (x,y) := \frac{1}{2}\mathbb{E}\int_0^T \big( \langle Q X_s,
+    J (x,y) \eqdef \frac{1}{2}\mathbb{E}\int_0^T \big( \langle Q X_s,
     X_s \rangle_\mathscr{H} + \langle R u_s, u_s\rangle_U \big) \dd s +
     \frac{1}{2} \mathbb{E} \langle G X_T, X_T \rangle_\mathscr{H},
     \label{def:costfunctional}
 \end{equation}
 pro $x\in\mathscr{H}$ a $u\in U$, kde $Q$, $R$ a $G$ jsou lineární
 operátory splňující podmínku (A4).
+\end{definice}
 
 Úlohou je minimalizovat hodnotový funkcionál $J(x,u)$, tedy
 \begin{equation}
-    \tilde{J}(x) := \inf_{u\in\mathscr{U}} J(x,u)
+    \tilde{J}(x) \eqdef \inf_{u\in\mathscr{U}} J(x,u),
     \label{def:costfunctionalinfimum}
 \end{equation}
-a (pro dané $x\in\mathscr{H}$) abychom nalezli optimální regulaci
-$\hat{u}\in\mathscr{U}$, která dosahuje infima v
-\eqref{def:costfunctionalinfimum}, tj. $J(\hat{x},u) = \tilde{J}(x)$.
+a (pro dané $x\in\mathscr{H}$) nalézt optimální regulaci
+$\hat{u}\in\mathscr{U}$, která dosahuje infima 
+\eqref{def:costfunctionalinfimum}, tj. $J(x,\hat{u}) = \tilde{J}(x)$.
 
-Formální Ricattiho rovnice je v tomto případě
+Formální Riccatiho rovnice je v tomto případě
 \begin{align}
-	\dot{V} &= A^*V + VA - VBR^{-1}B^{*}V + Q,\\
+	\dot{V} &= A^*V + VA - VBR^{-1}B^{*}V + Q,
+	\label{Riccati}\\
 	V(0) &= G,
-	\label{}
 \end{align}
-která nezahrnuje lineární operátor šumu $C$, takže v tomto případě lze uplatnit 
+která nezahrnuje lineární poruchový operátor $C$, takže lze uplatnit 
 dobře známý výsledek pro deterministický případ.
 
 Nechť $\Sigma^+ = \left\{ V\in\mathscr{L}(\mathscr{H}),V=V^*;V\geq0 \right\}$.
 
-\begin{veta}
-	Pokud jsou (A1), (A4) a (A5) splněny, potom pro libovolný operátor $V_0\in\Sigma^+\cap
-	\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha})$ existuje operátorová funkce 
-	$V\in C_s([0,T],\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha})\cap C_s([0,T],\Sigma^+)$
+\begin{veta}[(Existence a jednoznačnost řešení Riccatiho rovnice)]
+	Za splnění předpokladů (A1), (A4) a (A5) existuje pro libovolný operátor $V_0\in\Sigma^+\cap
+	\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha})$ jednoznačná operátorová funkce 
+	$V\in C_s([0,T],\mathscr{L}(\mathscr{H}, D_{A^*}^{1-\alpha}))\cap C_s([0,T],\Sigma^+)$
 	taková, že
 	\begin{equation}
 		V(t) = S^*(t) V_0 S(t) + \int_0^t S^*(t-s)\big(Q-\left( B^*V(s) \right)^* R^{-1}B^*V(s)
 		\big) S(t-s) \dd s
-		\label{}
+		\label{V}
 	\end{equation}
-	pro věechna $t\in[0,T]$ nebo (ekvivalentně)
-	\begin{equation}
-		\frac{\dd}{\dd t} \langle V(t)\,x,y\rangle_\mathscr{H} = 
-		\label{}
-	\end{equation}
+	pro všechna $t\in[0,T]$, či (ekvivalentně)
+	\begin{multline}
+		\frac{\dd}{\dd t} \langle V(t)\,x,y\rangle_\mathscr{H} =
+                \langle V(t)x, Ay\rangle_\mathscr{H} + \langle Ax, V(t)y\rangle_\mathscr{H} +
+                \langle Qx,y\rangle_\mathscr{H} \\
+                - \langle R^{-1}B^*V(t)x,B^*V(t)y\rangle_U
+		\label{V2}
+        \end{multline}
+        pro všechna $t\in\left( 0,T \right)$, $x,y\in D_A$ a $V(0)=V_0$.
 \end{veta}
 
+Zobrazení $V$ splňující \eqref{V} (nebo ekvivalentně \eqref{V2}) se nazývá
+{\em slabé řešení} rovnice \eqref{Riccati} s $V_0=G$.
 
-\section{Stochastický princip maxima}
+\begin{lemma}
+    Pokud jsou předpoklady (A1) a (A3) -- (A5) splněny, je náhodný proces
+    $(\varphi(t)$, $t\in[0,T])$, 
+    \begin{equation}
+        \varphi(t) \eqdef \int_t^T U_P(s,t)P(s)C\dd B^H(s),
+        \label{phi}
+    \end{equation}
+    dobře definovaným centrovaným gaussovským procesem v $L^p\left( \Omega\times
+    \left( 0,T \right), D_{A^*}^{1-\alpha} \right)$.
+    \label{}
+\end{lemma}
+
+\begin{veta}[(Optimální neadaptivní řízení)]
+    Nechť (A1) -- (A5) jsou splněny, nechť $x\in\mathscr{H}$ a $u\in U$; nechť
+    $\varphi$ je dáno \eqref{phi} a nechť $(X_t, t\geq 0)$ je řešením rovnice řízení 
+    \eqref{eq:stateeq}. Nechť $V = L^p \left( [0,T]\times\Omega, U \right)$ je lineární prostor 
+    neadaptivních regulací. Optimální regulace $\bar{v}\in\mathscr{V}$, jež je
+    řešením optimalizační úlohy \eqref{eq:stateeq} --
+    \eqref{def:costfunctional}, kde množina regulací $\mathscr{U}$ je nahrazena
+    množinou $\mathscr{V}$, je dána
+    \begin{equation*}
+        \bar{v} = -R^{-1} B^* \left( P(t)X(t) + \varphi(t) \right),
+        \label{}
+    \end{equation*}
+    kde $(X_t, t\in[0,T])$ je řešením rovnice řízení \eqref{eq:stateeq} pro
+    $u=\bar{v}$.
+
+    Optimální funkcionál $\tilde{J}$ je
+    \begin{equation*}\label{}
+    \begin{split}
+        \tilde{J} &= \frac{1}{2} \langle P(0)x,x\rangle_\mathscr{H} -
+        \frac{1}{2}\Eb\int_0^T\left| R^{-1}B^*\varphi(s) \right|_U^2\dd s \\
+        &\qquad\qquad  + \int_0^T \int_0^s \Tr \left[ C^*P(s)U_P^*(s,r)C\tilde{Q}
+        \right]\,\phi_H(r-s)\dd r\! \dd s\\
+        &= \frac{1}{2} \langle P(0)x,x\rangle_\mathscr{H}\\
+        &\quad - \frac{1}{2}\int_0^T \int_s^T\int_s^T \Tr \left[
+        R^{-1} B^* U_P(r,s) P(r) C \tilde{Q} C^* P(q) U_P^*(q,s) R^{-1} B \right]\\
+        &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
+        \phi_H(r-q) \dd q\! \dd r\! \dd s\\
+        &\qquad\qquad + \int_0^T \int_0^s \Tr \left[ C^*P(s)U_P^*(s,r)C\tilde{Q}
+        \right]\,\phi_H(r-s)\dd r\! \dd s.
+    \end{split}
+\end{equation*}
+\end{veta}
+
+\begin{veta}[(Optimální adaptivní řízení)]
+    Jsou-li naplněny předpoklady (A1) -- (A5), potom existuje jednoznačná
+    optimální regulace $\left( \bar{u}(t),t\in\left[ 0,T \right] \right)$ v
+    $\mathscr{U}$ optimalizační úlohy \eqref{eq:stateeq} -- \eqref{def:costfunctional}, která je dána
+    předpisem
+    \begin{equation*}
+        \bar{u}(t) = -R^{-1} B^* P(t) X(t) - R^{-1} B^* \psi(t)
+        \label{optimalcontrol}
+    \end{equation*}
+    a kde
+    \begin{equation*}
+        \begin{split}
+        \psi(t) &\eqdef \Eb \left[ \varphi(t)\,|\,\mathscr{F}_t \right] \\
+        &= \int_0^t s^{-(H-\frac{1}{2})} \left( I_{t_-}^{-( H-\frac{1}{2})}
+        \left( I_{t_-}^{(H-\frac{1}{2})} u_{(H-\frac{1}{2})} \left( U_P
+        (\cdot,t) P(\cdot) C \right) \right) \right)\! (s) \dd B^H(s),
+    \end{split}
+    \end{equation*}
+    kde $t\in \left[ 0,T \right]$, $u_a(s)=s^a I$ pro $s>0$, $a\in\R$ a
+    $I_{t_-}^a$ značí levostranný Riemann-Liouvillův integrál (viz. Definici
+    \eqref{def:fracint}).
+
+    Optimální funkcionál je
+    \begin{equation*}
+    \begin{split}
+        \tilde{J} = J(x,\bar{u}) &= \frac{1}{2} \langle P(0)x,x
+        \rangle_\mathscr{H} -\frac{1}{2}\Eb\int_0^T \left| R^{-1} B^*
+        \psi(s) \right|_U^2 \dd s \\
+        &\quad + \int_0^T \int_0^s \Tr \left[ C^*P(s) U_P^*(s,r) C \tilde{Q} \right]
+        \phi_H (r-s) \dd r\!\dd s\\
+        &= \frac{1}{2} \langle P(0)x,x
+        \rangle_\mathscr{H} -
+        \int_0^T \int_0^s\int_0^s \Tr\left[ \eta(s,p)\tilde{Q}\eta(s,q) \right]
+        \phi_H (p-q) \dd p\!\dd q\!\dd s \\
+        &\quad + \int_0^T \int_0^s \Tr \left[ C^*
+            P(s) U_P^*(s,r) C \tilde{Q} \right] \phi_H (r-s) \dd r\!\dd s,
+        \label{}
+    \end{split}
+    \end{equation*}
+    kde $\Eb[\varphi(t)|\mathscr{F}(t)]=\int_0^t \eta(t,s)\dd B^H(s)$.
+\end{veta}
+
